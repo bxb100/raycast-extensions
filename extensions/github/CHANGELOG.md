@@ -1,5 +1,9 @@
 # GitHub Changelog
 
+## [unified handle notification icon retrieval error] - {PR_MERGE_DATE}
+
+- Notifications Command and Menu Bar: Display a fallback icon when the notification icon retrieval fails.
+
 ## [Fix clone with options action] - 2025-09-08
 
 - Fix the clone action by adding the quote to the command to prevent issues with spaces in the path

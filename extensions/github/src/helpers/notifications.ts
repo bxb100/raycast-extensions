@@ -68,7 +68,7 @@ export async function getGitHubURL(notification: Notification, userId?: string) 
   return notification.url;
 }
 
-export async function getNotificationIcon(notification: Notification): Promise<{ value: Image; tooltip: string }> {
+async function _getNotificationIcon(notification: Notification): Promise<{ value: Image; tooltip: string }> {
   if (notification.subject.type === "PullRequest") {
     const { octokit } = getGitHubClient();
     const pullRequest = await octokit.pulls.get({
@@ -146,6 +146,12 @@ export async function getNotificationIcon(notification: Notification): Promise<{
 
   icon.tooltip = `Subject type: ${icon.tooltip}`;
   return icon;
+}
+
+export async function getNotificationIcon(notification: Notification) {
+  return _getNotificationIcon(notification).catch(() => {
+    return { value: { source: Icon.Warning, tintColor: Color.Red }, tooltip: "Could not load icon" };
+  });
 }
 
 export function getNotificationTypeTitle(notification: Notification): string {
