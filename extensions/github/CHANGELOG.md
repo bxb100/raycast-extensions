@@ -1,6 +1,6 @@
 # GitHub Changelog
 
-## [Unified handle notification icon retrieval error] - {PR_MERGE_DATE}
+## [Unified handle notification icon retrieval error] - 2025-10-02
 
 - Notifications Command and Menu Bar: Display a fallback icon when the notification icon retrieval fails.
 
