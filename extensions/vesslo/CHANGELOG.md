@@ -1,5 +1,10 @@
 # Vesslo Changelog
 
+## [Improve Store Listing] - 2026-02-16
+
+- Improved README presentation by removing duplicate icon header
+- Added demo GIF showing the extension in action
+
 ## [Initial Release] - 2026-02-16
 - Added `Search Apps` command to find apps by name, developer, tag, or memo
 - Added `View Updates` command to check for pending updates with Vesslo integration
