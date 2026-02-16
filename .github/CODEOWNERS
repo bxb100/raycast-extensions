@@ -1515,6 +1515,7 @@
 /extensions/ohmyzsh-plugins                                         @k8scat
 /extensions/ok-json                                                 @francisfeng
 /extensions/oklch-color-converter                                   @strongeron
+/extensions/okta-app-manager                                        @Tigeredgar
 /extensions/oktasearch                                              @zachmian
 /extensions/olacv                                                   @xmok
 /extensions/ollama-mind-map-generator                               @vojay-dev

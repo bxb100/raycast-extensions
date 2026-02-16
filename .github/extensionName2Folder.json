@@ -1513,6 +1513,7 @@
   "k8scat/ohmyzsh-plugins": "ohmyzsh-plugins",
   "anybox/ok-json": "ok-json",
   "strongeron/oklch-color-converter": "oklch-color-converter",
+  "Tigeredgar/okta-app-manager": "okta-app-manager",
   "damian_zachwieja/oktasearch": "oktasearch",
   "xmok/olacv": "olacv",
   "vojay/ollama-mind-map-generator": "ollama-mind-map-generator",
