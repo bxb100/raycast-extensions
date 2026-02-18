@@ -1,5 +1,9 @@
 # Bitwarden Changelog
 
+## [Fix Password Generation] - 2026-02-18
+
+- Fix password generation failing due to false boolean options
+
 ## [Fix & Improvements] - 2026-02-17
 
 - Fix potential stale session token issue
