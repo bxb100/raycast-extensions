@@ -1,5 +1,7 @@
 # Remember the Date Changelog
 
+## [Contributor Update] - 2026-02-21
+
 ## [Recurring Events Support] - 2026-02-20
 
 - Added support for recurring dates: weekly, monthly, and yearly repeat types
