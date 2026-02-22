@@ -97,6 +97,9 @@ jobs:
               context,
               fetch,
             })
+      - name: Set SHORT_SHA
+        run: echo "SHORT_SHA=${GITHUB_SHA::8}" >> $GITHUB_ENV
+
       - name: Notify Failure to Slack
         if: failure() && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         uses: raycast/github-actions/slack-send@master
@@ -105,7 +108,7 @@ jobs:
           color: "danger"
           text: |
             :no_entry_sign: ${{ github.workflow }} has failed
-            <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Action logs> | <${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}|Commit: ${{ github.sha }}>
+            <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Action logs> | <${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}|Commit: ${{ env.SHORT_SHA }}>
       - name: Notify Success to Slack
         if: success() && github.event_name == 'workflow_dispatch'
         uses: raycast/github-actions/slack-send@master
@@ -114,4 +117,4 @@ jobs:
           color: "good"
           text: |
             :white_check_mark: ${{ github.workflow }} has succeeded
-            <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Action logs> | <${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}|Commit: ${{ github.sha }}>
+            <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Action logs> | <${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}|Commit: ${{ env.SHORT_SHA }}>

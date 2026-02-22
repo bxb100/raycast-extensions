@@ -49,6 +49,9 @@ jobs:
             echo 'has_commit=false' >> $GITHUB_OUTPUT
           fi
 
+      - name: Set SHORT_SHA
+        run: echo "SHORT_SHA=${GITHUB_SHA::8}" >> $GITHUB_ENV
+
       - name: Notify Failure to Slack
         if: failure()
         uses: raycast/github-actions/slack-send@master
@@ -57,7 +60,7 @@ jobs:
           color: "danger"
           text: |
             :no_entry_sign: ${{ github.workflow }} has failed
-            <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Action logs> | <${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}|Commit: ${{ github.sha }}>
+            <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Action logs> | <${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}|Commit: ${{ env.SHORT_SHA }}>
 
   push-utils-docs-to-upstream:
     if: github.repository == 'raycast/extensions' && github.event_name == 'push'
@@ -139,6 +142,9 @@ jobs:
               title: 'Docs: Update from the extensions repo'
             })
 
+      - name: Set SHORT_SHA
+        run: echo "SHORT_SHA=${GITHUB_SHA::8}" >> $GITHUB_ENV
+
       - name: Notify Failure to Slack
         if: failure()
         uses: raycast/github-actions/slack-send@master
@@ -147,4 +153,4 @@ jobs:
           color: "danger"
           text: |
             :no_entry_sign: ${{ github.workflow }} has failed
-            <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Action logs> | <${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}|Commit: ${{ github.sha }}>
+            <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Action logs> | <${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}|Commit: ${{ env.SHORT_SHA }}>

@@ -26,6 +26,9 @@ jobs:
           GITHUB_ACCESS_TOKEN: ${{ secrets.RAYCAST_BOT_API_ACCESS_TOKEN }}
           SCRIPT: "scripts/bots/issue-bot.ts"
 
+      - name: Set SHORT_SHA
+        run: echo "SHORT_SHA=${GITHUB_SHA::8}" >> $GITHUB_ENV
+
       - name: Notify Failure to Slack
         if: failure()
         uses: raycast/github-actions/slack-send@master
@@ -34,4 +37,4 @@ jobs:
           color: "danger"
           text: |
             :no_entry_sign: ${{ github.workflow }} has failed
-            <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Action logs> | <${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}|Commit: ${{ github.sha }}>
+            <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Action logs> | <${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}|Commit: ${{ env.SHORT_SHA }}>
