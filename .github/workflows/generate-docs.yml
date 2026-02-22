@@ -52,6 +52,7 @@ jobs:
           publish_dir: ./generated-docs
 
       - name: Set SHORT_SHA
+        if: always()
         run: echo "SHORT_SHA=${GITHUB_SHA::8}" >> $GITHUB_ENV
 
       - name: Notify Failure to Slack
