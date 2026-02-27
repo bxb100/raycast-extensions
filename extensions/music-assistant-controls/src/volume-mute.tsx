@@ -7,5 +7,5 @@ export default async function main() {
 
   const client = new MusicAssistantClient();
   const controller = await client.createVolumeController(selectedPlayerID);
-  await controller.volumeUp();
+  await controller.toggleMute();
 }
